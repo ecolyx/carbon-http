@@ -6,16 +6,16 @@ import socket
 import sys
 import time
 
-html = """
-<html>
-<body>
-   <p>
-        Metric: %(metric)s<br>
-        Details: %(metricvalue)s %(metrictime)s
-    </p>
-</body>
-</html>
-"""
+#html = """
+#<html>
+#<body>
+#   <p>
+#        Metric: %(metric)s<br>
+#        Details: %(metricvalue)s %(metrictime)s
+#    </p>
+#</body>
+#</html>
+#"""
 
 def application (environ, start_response):
 
@@ -39,7 +39,7 @@ def application (environ, start_response):
     sock = socket.socket()
 
     # Connect the socket to the port where the server is listening
-    sock.connect(('ecolyx.com', 2003))
+    sock.connect(('localhost', 2003))
 
     # Send data
     message = "%s %s %s\n" % (metric, metricvalue, metrictime)
